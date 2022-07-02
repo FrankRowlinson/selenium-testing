@@ -4,11 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
 import math
-
-
-# same function as in previous steps. Calculate value of f(x)
-def calc(x):
-  return str(math.log(abs(12 * math.sin(int(x)))))
+import robo_captcha as rc
 
 
 with webdriver.Chrome() as browser:
@@ -17,7 +13,7 @@ with webdriver.Chrome() as browser:
     # same as before. Calculate x and send it into answer field
     x = int(browser.find_element(By.CSS_SELECTOR, 'label>span#input_value').text)
     field = browser.find_element(By.CSS_SELECTOR, 'input#answer')
-    field.send_keys(calc(x))
+    field.send_keys(rc.calc(x))
     # hide huge footer on page because it makes all required elements unreachable
     footer = browser.find_element(By.TAG_NAME, 'footer')
     browser.execute_script('arguments[0].style.visibility = "hidden"', footer)

@@ -20,9 +20,10 @@ try:
     button.click()
 
 finally:
-    # успеваем скопировать код за 30 секунд
+    # sleep so you have time to manipulate browser before it closes on you
     time.sleep(30)
-    # закрываем браузер после всех манипуляций
+    # don't forget to quit! Nobody likes memory leaks
+    # or just use context managers, they sure do a better job at handling such scenarios
     browser.quit()
 
-# не забываем оставить пустую строку в конце файла
+# don't forget to leave empty line at the end of the file

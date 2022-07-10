@@ -17,13 +17,6 @@ links = ["https://stepik.org/lesson/236896/step/1",
 "https://stepik.org/lesson/236905/step/1"
 ]
 
-
-@pytest.fixture(scope="function")
-def browser():
-    browser = webdriver.Chrome()
-    yield browser
-    browser.quit()
-
 @pytest.mark.parametrize("link", links)
 def test_optional_feedback(browser, link):
     browser.get(link)

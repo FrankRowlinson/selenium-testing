@@ -1,2 +1,4 @@
 sandbox/
 geckodriver.log
+__pycache__
+.venv
